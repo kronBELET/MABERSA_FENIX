@@ -5,7 +5,7 @@ require_once('db_conn.php');
 // Inicializa la variable de información
 $signup_info = $login_info = '';
 if (isset($_REQUEST['login_please'])) {
-    $login_info = '<div class="error">You need to login first!</div>';
+    $login_info = '<div class="error">¡Tienes que iniciar sesión primero!</div>';
 }
 // Verifica si el formulario se ha enviado
 if(isset($_POST['signup'])) {
@@ -90,9 +90,9 @@ if(isset($_POST['signup'])) {
                     <input class="input" type="email" id="email" name="email" required>
                     <label class="label" for="password">Contraseña</label>
                     <input class="input" type="password" id="password" name="password" required>
-                    <label class="label" for="role">Role</label>
+                    <label class="label" for="role">Rol</label>
                     <select class="select" id="role" name="role" required>
-                        <option value="">Select a role</option>
+                        <option value="">SeleccionA un función</option>
                         <option value="teacher">Maestro/Maestra</option>
                         <option value="student">Alumno/Alumna</option>
                     </select>
