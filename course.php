@@ -1,23 +1,23 @@
 <?php
-// Include the database connection file
+// Incluir el archivo de conexión a la base de datos
 require_once('db_conn.php');
 $show = $info = '';
 if (isset($_REQUEST['enroll'])) {
     if (isNotLoggedIn() && isTeacherLoggedIn()) {
-        $info = '<div class="error">Only logged in students can enroll!</div>';
+        $info = '<div class="error">¡Solo los estudiantes conectados pueden inscribirse!</div>';
     } else {
         $u_id = $_SESSION['u_id'];
         $c_id = mysqli_real_escape_string($conn,$_REQUEST['enroll']);
         $sql2 = "SELECT * FROM `enrollment` WHERE `c_id` = '$c_id' AND `u_id` = '$u_id'";
         $result2 = mysqli_query($conn,$sql2);
         if (mysqli_num_rows($result2) > 0) {
-            $info = '<div class="error">You are already enrolled in this subject!</div>';
+            $info = '<div class="error">¡Ya estás matriculado en este curso!</div>';
         }else{
             $sql3 = "INSERT INTO `enrollment` (`c_id`,`u_id`) VALUES ('$c_id','$u_id')";
             if (mysqli_query($conn,$sql3)) {
-                $info = '<div class="success">Enrollment successful!</div>';
+                $info = '<div class="success">¡Inscripción exitosa!</div>';
             }else{
-                $info = '<div class="error">An error occurred!</div>';
+                $info = '<div class="error">¡Ocurrió un error!</div>';
             }
         }
     }
@@ -25,13 +25,13 @@ if (isset($_REQUEST['enroll'])) {
 }
 if (isset($_REQUEST['c_id'])) {
     $c_id = mysqli_real_escape_string($conn,$_REQUEST['c_id']);
-    // Prepare the SQL query
+    // Preparar la consulta SQL
     $sql = "SELECT * FROM courses WHERE `c_id` = '$c_id'";
 
-    // Execute the query and store the result set
+    // Ejecutar la consulta y almacenar el conjunto de resultados
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    // Check if any results found
+    // Comprobar si se han encontrado resultados
     if (mysqli_num_rows($result) > 0) {
 
         $c_id = $row['c_id'];
@@ -51,7 +51,7 @@ if (isset($_REQUEST['c_id'])) {
             <a href="?c_id='.$row['c_id'].'&enroll='.$row['c_id'].'" class="enroll-btn">Enlístate ahora</a>
         </div>';
     } else {
-        // No results found
+        // No se han encontrado resultados
         $show = "<div class='error'>No se encontraron cursos.</div>";
     }
 }

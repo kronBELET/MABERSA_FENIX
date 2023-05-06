@@ -1,19 +1,19 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
+// Include the database connection file
 require_once('db_conn.php');
 
 $show = '';
-// Preparar la consulta SQL
+// Prepare the SQL query
 $sql = "SELECT * FROM courses ORDER BY `c_id` LIMIT 6";
 
-// Ejecutar la consulta y almacenar el conjunto de resultados
+// Execute the query and store the result set
 $result = mysqli_query($conn, $sql);
 
-// Comprobar si se han encontrado resultados
+// Check if any results found
 if (mysqli_num_rows($result) > 0) {
-   // Iniciar tabla HTML y encabezados de tabla
+    // Start HTML table and table headers
    
-    // Recorrer el conjunto de resultados y mostrar cada fila como una fila de tabla
+    // Loop through the result set and output each row as a table row
     while($row = mysqli_fetch_assoc($result)) {
         $c_id = $row['c_id'];
 
@@ -21,13 +21,13 @@ if (mysqli_num_rows($result) > 0) {
         <div class="card-content">
             <h2>'.$row['course_name'].'</h2>
             <p>'.substr($row['course_description'], 0, 100) . "...".'</p>
-            <a href="course.php?c_id='.$c_id.'" class="button">Aprende más</a>
+            <a href="course.php?c_id='.$c_id.'" class="button">Learn More</a>
         </div>
     </div>';
     }
     
 } else {
-   // No se han encontrado resultados
+    // No results found
     $show = "<div class='error'>No se encontraron cursos.</div>";
 }
 ?>

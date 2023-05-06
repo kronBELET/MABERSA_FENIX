@@ -1,34 +1,33 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
+// Include the database connection file
 require_once('db_conn.php');
 if (!isStudentLoggedIn()) {
     header('location:login.php?login_please');
     die();
 }
 $u_id = $_SESSION['u_id'];
-// Preparar la consulta SQL
-
+// Prepare the SQL query
 $sql = "SELECT * FROM enrollment WHERE u_id = '$u_id'";
 
-// Ejecutar la consulta y almacenar el conjunto de resultados
+// Execute the query and store the result set
 $result = mysqli_query($conn, $sql);
 
-// Comprobar si se han encontrado resultados
+// Check if any results found
 if (mysqli_num_rows($result) > 0) {
 
 
-   // Iniciar tabla HTML y encabezados de tabla
+    // Start HTML table and table headers
     $show = '<table>';
     $show .= '<thead><tr><th>ID</th><th>Nombre del curso</th><th>Maestro/Maestra</th><th>Fecha Agregada</th><th>Acción</th></tr></thead>';
 
-    // Recorrer el conjunto de resultados y mostrar cada fila como una fila de tabla
+    // Loop through the result set and output each row as a table row
     while ($row = mysqli_fetch_assoc($result)) {
         $c_id = $row['c_id'];
 
-        // Preparar la consulta SQL
+        // Prepare the SQL query
         $sql2 = "SELECT * FROM courses WHERE c_id = '$c_id'";
 
-       // Ejecutar la consulta y almacenar el conjunto de resultados
+        // Execute the query and store the result set
         $result2 = mysqli_query($conn, $sql2);
         $row2 = mysqli_fetch_assoc($result2);
 
@@ -46,10 +45,10 @@ if (mysqli_num_rows($result) > 0) {
         $show .= '</tr>';
     }
 
-  // Cierra la etiqueta de la tabla
+    // Close the table tag
     $show .= '</table>';
 } else {
-    // No se han encontrado resultados
+    // No results found
     $show = "<div class='error'>No se encontraron cursos.</div>";
 }
 ?>

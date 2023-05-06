@@ -1,24 +1,24 @@
 <?php
-// Include the database connection file
+// Incluir el archivo de conexión a la base de datos
 require_once('db_conn.php');
 if (!isTeacherLoggedIn()) {
     header('location:login.php?login_please');
     die();
 }
-// Initialize the info variable
+// Inicializar la variable de información
 $msg = '';
 
-$info = array(); // to hold error/success messages
-// print_r($_SESSION);
+$info = array(); // para contener mensajes de error/éxito
+// imprimir_r($_SESION);
 if (isset($_POST['add_course'])) {
-    // get form data
+    // obtener datos del formulario
     $u_id = $_SESSION['u_id'];
     $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
     $course_description = mysqli_real_escape_string($conn, $_POST['course_description']);
     $sql = "SELECT * FROM `courses` WHERE `course_name` = '$course_name' AND `t_id` = '$u_id'";
     $result1 = mysqli_query($conn,$sql);
     if (mysqli_num_rows($result1) == 0) {
-        // validate file upload
+       // validar la carga del archivo
         if (isset($_FILES['video']) && $_FILES['video']['error'] == 0) {
             $allowed_extensions = array('mp4', 'webm');
             $max_file_size = 25 * 1024 * 1024; // 25 MB
@@ -26,13 +26,13 @@ if (isset($_POST['add_course'])) {
             $file_extension = strtolower($file_info['extension']);
             $file_size = $_FILES['video']['size'];
 
-            // check file extension and size
+           // comprobar la extensión y el tamaño del archivo
             if (in_array($file_extension, $allowed_extensions) && $file_size <= $max_file_size) {
-                // generate unique filename and upload the file
+                // genera un nombre de archivo único y sube el archivo
                 $upload_dir = 'uploads/';
                 $upload_file = $upload_dir . uniqid() . '.' . $file_extension;
                 if (move_uploaded_file($_FILES['video']['tmp_name'], $upload_file)) {
-                    // insert course data into database
+                    // insertar datos del curso en la base de datos
                     $query = "INSERT INTO courses (t_id,course_name, course_description, video) 
                           VALUES ('$u_id', '$course_name', '$course_description', '$upload_file')";
                     if (mysqli_query($conn, $query)) {

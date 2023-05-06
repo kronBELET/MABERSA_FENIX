@@ -1,19 +1,19 @@
 <?php
 session_start();
-// Database credentials
+// Credenciales de la base de datos
 $db_host = "localhost";
 $db_name = "mabersa";
 $db_user = "root";
 $db_pass = "";
 
-// Create connection
+// Crear conexión
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
-// Check connection
+// Verifica la conexión
 if (!$conn) {
     die("La conexión falló: " . mysqli_connect_error());
 }
-// function to check if user is logged in as a student
+// función para verificar si el usuario está conectado como estudiante
 function isStudentLoggedIn()
 {
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'student') {
@@ -22,7 +22,7 @@ function isStudentLoggedIn()
     return false;
 }
 
-// function to check if user is logged in as a teacher
+// función para comprobar si el usuario está conectado como profesor
 function isTeacherLoggedIn()
 {
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -31,7 +31,7 @@ function isTeacherLoggedIn()
     return false;
 }
 
-// function to check if user is not logged in
+// función para comprobar si el usuario no ha iniciado sesión
 function isNotLoggedIn()
 {
     if (!isset($_SESSION['user_id'])) {
