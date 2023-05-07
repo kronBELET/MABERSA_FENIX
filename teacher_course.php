@@ -20,8 +20,8 @@ if (isset($_REQUEST['c_id'])) {
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_assoc($result1);
         if (!empty($row1)) {
-            $table = '<table>';
-            $table .= '<thead><tr><th>ID de usuario</th><th>Nombre</th><th>Correo electrónico</th></tr></thead>';
+            '<table>';
+             '<thead><tr><th>ID de usuario</th><th>Nombre</th><th>Correo electrónico</th></tr></thead>';
 
             do {
                 $st_id = $row1['u_id'];
@@ -29,13 +29,13 @@ if (isset($_REQUEST['c_id'])) {
                 $result2 = mysqli_query($conn, $sql2);
                 $row2 = mysqli_fetch_assoc($result2);
 
-                $table .= '<tr>';
-                $table .= '<td>' . $row2["u_id"] . '</td>';
-                $table .= '<td>' . $row2["name"] . '</td>';
-                $table .= '<td>' . $row2["email"] . '</td>';
-                $table .= '</tr>';
+                 '<tr>';
+                 '<td>' . $row2["u_id"] . '</td>';
+                 '<td>' . $row2["name"] . '</td>';
+                 '<td>' . $row2["email"] . '</td>';
+                 '</tr>';
             } while ($row1 = mysqli_fetch_assoc($result1));
-            $table .= '</table>';
+             '</table>';
         }
         $show .= '
             <div class="course-container">
@@ -48,7 +48,7 @@ if (isset($_REQUEST['c_id'])) {
         </div>
         <div class="students">
         <h2 class="center">Estudiantes Inscritos</h2>
-        ' . $table . '
+        </table>
         </div>
         </div>';
     } else {
