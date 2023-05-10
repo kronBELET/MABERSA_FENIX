@@ -30,7 +30,14 @@ function isTeacherLoggedIn()
     }
     return false;
 }
-
+// función para comprobar si el usuario está conectado como administrador
+function isAdminLoggedIn()
+{
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+        return true;
+    }
+    return false;
+}
 // función para comprobar si el usuario no ha iniciado sesión
 function isNotLoggedIn()
 {

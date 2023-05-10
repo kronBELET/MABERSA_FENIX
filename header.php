@@ -18,6 +18,14 @@
                 echo '<li><a href="add_course.php">Añadir curso</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
+            //si el usuario es el administrador
+            elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+                echo '<li><a href="index.php">Hogar</a></li>';
+                echo '<li><a href="admin_dashboard.php">Panel</a></li>';
+                echo '<li><a href="add_course.php">Añadir curso</a></li>';
+                echo '<li><a href="logout.php">Cerrar sesión</a></li>';
+            }
+
             // Si el usuario no está conectado
             else {
                 echo '<li><a href="index.php">Hogar</a></li>';

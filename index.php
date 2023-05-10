@@ -42,6 +42,7 @@ if (mysqli_num_rows($result) > 0) {
 
     <body>
         <?php include('header.php'); ?>
+        
         <main>
             <h1 class="page-title">Cursos Recientes</h1>
             <div class="card-container">

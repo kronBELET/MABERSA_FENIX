@@ -50,8 +50,10 @@ if(isset($_POST['signup'])) {
       $login_info = "<div class='success'>Inicio de sesión exitoso</div>";
       if ($_SESSION['role'] == 'student') {
         header('location: student_dashboard.php');
-      } else {
+      } elseif($_SESSION['role'] == 'teacher') {
         header('location: teacher_dashboard.php');
+      }elseif($_SESSION['role'] == 'admin') {
+        header('location: admin_dashboard.php');
       }
       
     } else {
