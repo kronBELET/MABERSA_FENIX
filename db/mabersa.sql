@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 06:28 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-05-2023 a las 21:05:49
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mabersa`
+-- Base de datos: `mabersa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `courses`
+-- Estructura de tabla para la tabla `courses`
 --
 
 CREATE TABLE `courses` (
@@ -36,10 +36,17 @@ CREATE TABLE `courses` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `courses`
+--
+
+INSERT INTO `courses` (`c_id`, `t_id`, `course_name`, `course_description`, `video`, `timestamp`) VALUES
+(1, 1, 'creacion de comic', 'daras vida a tus historias ', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enrollment`
+-- Estructura de tabla para la tabla `enrollment`
 --
 
 CREATE TABLE `enrollment` (
@@ -51,7 +58,7 @@ CREATE TABLE `enrollment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -59,22 +66,31 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('teacher','student') NOT NULL DEFAULT 'student',
+  `role` enum('teacher','student','admin') NOT NULL DEFAULT 'student',
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `timestamp`) VALUES
+(1, 'kron', 'kronbelet@gmail.com', 'd934340eb29cd2353af5826c8126c5ea', 'admin', '2023-05-10 12:26:42'),
+(2, 'estudiante', 'estudiante@gmail.com', '202cb962ac59075b964b07152d234b70', 'student', '2023-05-10 16:38:58'),
+(3, 'maestro', 'maestro@gmail.com', '202cb962ac59075b964b07152d234b70', 'teacher', '2023-05-10 16:40:48');
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `courses`
+-- Indices de la tabla `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`c_id`);
 
 --
--- Indexes for table `enrollment`
+-- Indices de la tabla `enrollment`
 --
 ALTER TABLE `enrollment`
   ADD PRIMARY KEY (`e_id`),
@@ -82,40 +98,40 @@ ALTER TABLE `enrollment`
   ADD KEY `c_id` (`c_id`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`u_id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `courses`
+-- AUTO_INCREMENT de la tabla `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `enrollment`
+-- AUTO_INCREMENT de la tabla `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `enrollment`
+-- Filtros para la tabla `enrollment`
 --
 ALTER TABLE `enrollment`
   ADD CONSTRAINT `enrollment_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`),
