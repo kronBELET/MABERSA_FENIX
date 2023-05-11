@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
              <h2>'.$row['course_name'].'</h2>
              <p>'.substr($row['course_description'], 0, 100) . "...".'</p>
              <a href="course.php?c_id='.$c_id.'" class="button">Detalles</a>
-             <a href="delete_course.php?c_id='.$c_id.'" class="eliminar">Eliminar</a>
+             <a href="delete.php?c_id='.$c_id.'" class="eliminar">Eliminar</a>
  
          </div>
      </div>';
