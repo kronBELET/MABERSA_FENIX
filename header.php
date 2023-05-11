@@ -21,8 +21,8 @@
             //si el usuario es el administrador
             elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                 echo '<li><a href="index.php">Hogar</a></li>';
-                echo '<li><a href="admin_dashboard.php">cursos</a></li>';
-                echo '<li><a href="user.php">usuarios</a></li>';
+                echo '<li><a href="admin_dashboard.php">Cursos</a></li>';
+                echo '<li><a href="user.php">Usuarios</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
 
