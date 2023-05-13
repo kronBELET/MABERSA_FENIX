@@ -64,6 +64,7 @@ nav a.active {
 }
 
 .card-container {
+    background-image: url(../images/fondo.jpg);
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -274,3 +275,17 @@ tr:hover {
     width: 50%;
     margin: 0 auto;
 }
+
+.paragraph {
+    text-align: center;
+    justify-content: center;
+}
+
+.main-banner {
+    background-image: url(../images/blue.avif);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 170px 0px 120px 0px;
+}   
+
