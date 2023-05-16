@@ -23,6 +23,15 @@ $offset = ($paginaActual - 1) * $cursosPorPagina;
 // Preparar la consulta SQL con el límite y el desplazamiento
 $sql = "SELECT * FROM courses ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
 
+/*  --BUSQUEDA-- */ 
+// Obtener el término de búsqueda ingresado por el usuario
+$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+
+// Preparar la consulta SQL con el término de búsqueda
+$sql = "SELECT * FROM courses WHERE course_name LIKE '%$searchTerm%' ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
+
+
+
 // Ejecutar la consulta y almacenar el conjunto de resultados
 $result = mysqli_query($conn, $sql);
 
@@ -44,6 +53,7 @@ if (mysqli_num_rows($result) > 0) {
     // No se han encontrado resultados
     $show = "<div class='error'>No se encontraron cursos.</div>";
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,6 +65,11 @@ if (mysqli_num_rows($result) > 0) {
 <body>
 <?php include('header.php'); ?>
     <main>
+    <form action="courses.php" method="GET">
+    <input type="text" name="search" placeholder="Buscar cursos">
+    <input type="submit" value="Buscar">
+</form>
+        <!--BARA DE BUSQUEDA-->
         <h1 class="page-title">Cursos</h1>
         <div class="card-container">
             <?php echo $show; ?>    
@@ -70,6 +85,7 @@ if (mysqli_num_rows($result) > 0) {
 
         echo '<a href="courses.php?page=' . $i . '" class="' . $activeClass . '">' . $i . '</a>';
     }
+    
     ?>
 </div>
            
