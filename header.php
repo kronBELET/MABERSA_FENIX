@@ -7,7 +7,6 @@
             // Comprobar si el usuario está conectado como estudiante
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'student') {
                 echo '<li><a href="index.php">Hogar</a></li>';
-                echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="student_dashboard.php">Panel</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
@@ -15,6 +14,7 @@
             elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
                 echo '<li><a href="index.php">Hogar</a></li>';
                 echo '<li><a href="teacher_dashboard.php">Panel</a></li>';
+                echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="add_course.php">Añadir curso</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
@@ -25,7 +25,7 @@
                 echo '<li><a href="user.php">Usuarios</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
-
+            
             // Si el usuario no está conectado
             else {
                 echo '<li><a href="index.php">Hogar</a></li>';

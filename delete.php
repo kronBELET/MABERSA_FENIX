@@ -18,7 +18,12 @@ if (isset($_GET['c_id'])) {
   mysqli_query($conn, $consulta);
 
   // Redirige a la página principal
-  header('Location: admin_dashboard.php');
+  if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    header('location: admin_dashboard.php');
+}
+elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+    header('location: teacher_dashboard.php');
+}
 }
 
 // USUARIOS

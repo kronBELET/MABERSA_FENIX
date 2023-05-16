@@ -33,6 +33,8 @@ if (mysqli_num_rows($result) > 0) {
         $show .= '<td>' . $row1["total_students"] . '</td>';
         $show .= '<td>' . $row["timestamp"] . '</td>';
         $show .= '<td><a href="teacher_course.php?c_id=' . $row["c_id"] . '">Ver detalles</a></td>';
+        $show .= '<td><a href="delete.php?c_id='.$c_id.'" class="eliminar">Eliminar</a></td>';
+        $show.= '<td><a href="edit.php?c_id='.$c_id.'" class="editar">Editar</a></td>';
         $show .= '</tr>';
     }
     

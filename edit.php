@@ -18,19 +18,32 @@ if (isset($_GET['c_id'])) {
 
         // Mostrar el formulario de edición con los datos del registro
         ?>
+<!DOCTYPE html>
+<html>
 
-<form action="update.php" method="post">
-            <input type="hidden" name="c_id" value="<?php echo $row['c_id']; ?>">
-            <!-- Aquí puedes mostrar los campos del formulario con los datos del registro -->
-            <label>Nombr Del Curso:</label>
-            <input type="text" name="nombre" value="<?php echo $row['course_name']; ?>">
-            <!-- Otros campos del formulario... -->
-            <label>Descrición:</label>
-            <input type="text" name="descricion" value="<?php echo $row['course_description']; ?>">
-            
-            <input type="submit" value="Guardar cambios">
-        </form>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mabersa</title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    </head>
 
+    <body>       
+        <?php include('header.php'); ?>
+        <div class="forms">
+            <form action="update.php" method="post">
+                        <input type="hidden" name="c_id" value="<?php echo $row['c_id']; ?>">
+                        <!-- Aquí puedes mostrar los campos del formulario con los datos del registro -->
+                        <label>Nombre Del Curso:</label>
+                        <input type="text"  class="input" name="nombre" value="<?php echo $row['course_name']; ?>">
+                        <!-- Otros campos del formulario... -->
+                        <label>Descrición:</label>
+                        <textarea name="descripcion" class="input" ><?php echo $row['course_description']; ?></textarea>
+                        
+                        <input type="submit"  value="Guardar cambios">
+            </form>
+        </div>
+    <body> 
+</html>
         <?php
     } else {
         echo "No se encontró el registro.";
