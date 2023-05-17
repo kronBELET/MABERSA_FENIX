@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2023 a las 21:05:49
+-- Tiempo de generación: 17-05-2023 a las 20:55:49
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -33,15 +33,19 @@ CREATE TABLE `courses` (
   `course_name` varchar(255) NOT NULL,
   `course_description` text DEFAULT NULL,
   `video` varchar(255) DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `approved` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `courses`
 --
 
-INSERT INTO `courses` (`c_id`, `t_id`, `course_name`, `course_description`, `video`, `timestamp`) VALUES
-(1, 1, 'creacion de comic', 'daras vida a tus historias ', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34');
+INSERT INTO `courses` (`c_id`, `t_id`, `course_name`, `course_description`, `video`, `timestamp`, `approved`) VALUES
+(1, 1, 'manga', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
+(8, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
+(9, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
+(28, 1, 'creacion de comic', 'asddadsd', 'uploads/646520e501373.mp4', '2023-05-17 18:45:57', 0);
 
 -- --------------------------------------------------------
 
@@ -112,7 +116,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `enrollment`
