@@ -9,6 +9,7 @@
                 echo '<li><a href="index.php">Hogar</a></li>';
                 echo '<li><a href="student_dashboard.php">Panel</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
+                echo '<li><a href="politics.php">nosotros</a></li>';
             }
             // Comprobar si el usuario está conectado como profesor
             elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
@@ -17,6 +18,7 @@
                 echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="add_course.php">Añadir curso</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
+                echo '<li><a href="politics.php">nosotros</a></li>';
             }
             //si el usuario es el administrador
             elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
@@ -24,6 +26,7 @@
                 echo '<li><a href="admin_dashboard.php">Cursos</a></li>';
                 echo '<li><a href="user.php">Usuarios</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
+                echo '<li><a href="politics.php">nosotros</a></li>';
             }
             
             // Si el usuario no está conectado
@@ -31,6 +34,7 @@
                 echo '<li><a href="index.php">Hogar</a></li>';
                 echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="login.php">Iniciar sesión/Registrarse</a></li>';
+                echo '<li><a href="politics.php">nosotros</a></li>';
             }
             ?>
         </ul>
