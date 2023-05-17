@@ -25,6 +25,7 @@
                 echo '<li><a href="approved_courses.php">cursos sin aprovar</a></li>';
                 echo '<li><a href="admin_dashboard.php">Cursos</a></li>';
                 echo '<li><a href="user.php">Usuarios</a></li>';
+                echo '<li><a href="add_course.php">Añadir curso</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
                 echo '<li><a href="politics.php">nosotros</a></li>';
             }

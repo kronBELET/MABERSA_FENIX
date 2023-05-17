@@ -61,31 +61,52 @@ if (mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8">
     <title>Mabersa</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .custom-search-btn {
+            background-color: #FF4081;
+            border-color: #FF4081;
+            color: #fff;
+        }
+
+        .custom-search-btn:hover {
+            background-color: #FF4081;
+            border-color: #FF4081;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 <?php include('header.php'); ?>
-    <main>
-    <form action="courses.php" method="GET">
-    <input type="text" name="search" placeholder="Buscar cursos">
-    <input type="submit" value="Buscar">
-</form>
-        <!--BARA DE BUSQUEDA-->
-        <h1 class="page-title">Cursos</h1>
-        <div class="card-container">
-            <?php echo $show; ?>    
+<main class="container">
+    <form action="courses.php" method="GET" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Buscar cursos">
+            <div class="input-group-append">
+                <button type="submit" class="btn custom-search-btn">Buscar</button>
+            </div>
         </div>
+    </form>
+    <h1 class="page-title">Cursos</h1>
+    <div class="card-container">
+        <?php echo $show; ?>    
+    </div>
 
-        <!-- Mostrar la paginación -->
-        <div class="pagination">
+    <!-- Mostrar la paginación -->
+    <div class="pagination mt-4">
         <?php
-    // Mostrar enlaces a las diferentes páginas
-    for ($i = 1; $i <= $totalPaginas; $i++) {
-        // Agregar clase 'active' al enlace de la página actual
-        $activeClass = ($i == $paginaActual) ? 'active' : '';
+        // Mostrar enlaces a las diferentes páginas
+        for ($i = 1; $i <= $totalPaginas; $i++) {
+            // Agregar clase 'active' al enlace de la página actual
+            $activeClass = ($i == $paginaActual) ? 'active' : '';
 
-        echo '<a href="courses.php?page=' . $i . '" class="' . $activeClass . '">' . $i . '</a>';
-    }
-    
-    ?>
-</div>
-           
+            echo '<a href="courses.php?page=' . $i . '" class="page-link ' . $activeClass . '">' . $i . '</a>';
+        }
+        ?>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

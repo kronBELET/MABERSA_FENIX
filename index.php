@@ -4,7 +4,7 @@ require_once('db_conn.php');
 
 $show = '';
 // Preparar la consulta SQL
-$sql = "SELECT * FROM courses ORDER BY `c_id` LIMIT 6";
+$sql = "SELECT * FROM courses where approved = 1 ORDER BY `c_id` LIMIT 6";
 
 // Ejecutar la consulta y almacenar el conjunto de resultados
 $result = mysqli_query($conn, $sql);
