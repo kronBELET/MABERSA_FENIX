@@ -64,7 +64,7 @@ nav a.active {
 }
 
 .card-container {
-    background-image: url(../images/fondo.jpg);
+   
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -72,6 +72,7 @@ nav a.active {
 }
 
 .card {
+    background-image: url(../images/capi.jpg);
     width: 30%;
     margin-bottom: 20px;
     border: 1px solid #ddd;
