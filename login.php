@@ -91,7 +91,7 @@ if(isset($_POST['signup'])) {
                     <label class="label" for="email">Correo electrónico</label>
                     <input class="input" type="email" id="email" name="email" required>
                     <label class="label" for="password">Contraseña</label>
-                    <input class="input" type="password" id="password" name="password" required>
+                    <input class="input" type="password" id="password" name="password" minlength="8" required>
                     <label class="label" for="role">Rol</label>
                     <select class="select" id="role" name="role" required>
                         <option value="">Selecciona un rol</option>
