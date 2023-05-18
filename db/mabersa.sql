@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2023 a las 20:55:49
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 18-05-2023 a las 03:18:12
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,7 @@ CREATE TABLE `courses` (
   `course_name` varchar(255) NOT NULL,
   `course_description` text DEFAULT NULL,
   `video` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `approved` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,11 +42,12 @@ CREATE TABLE `courses` (
 -- Volcado de datos para la tabla `courses`
 --
 
-INSERT INTO `courses` (`c_id`, `t_id`, `course_name`, `course_description`, `video`, `timestamp`, `approved`) VALUES
-(1, 1, 'manga', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
-(8, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
-(9, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '2023-05-10 12:27:34', 1),
-(28, 1, 'creacion de comic', 'asddadsd', 'uploads/646520e501373.mp4', '2023-05-17 18:45:57', 0);
+INSERT INTO `courses` (`c_id`, `t_id`, `course_name`, `course_description`, `video`, `image`, `timestamp`, `approved`) VALUES
+(1, 1, 'manga', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '', '2023-05-10 12:27:34', 1),
+(8, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '', '2023-05-10 12:27:34', 1),
+(9, 1, 'creacion de comics', 'vida a tus historia', 'uploads/645b8db60b8cd.mp4', '', '2023-05-10 12:27:34', 1),
+(28, 1, 'creacion de comic', 'asddadsd', 'uploads/646520e501373.mp4', '', '2023-05-17 18:45:57', 0),
+(29, 4, 'capibara', 'tweewrt', 'uploads/64657b6d2e483.mp4', 'uploads/64657b6d2eac0.jpg', '2023-05-18 01:12:13', 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +83,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `timestamp`) VALUES
 (1, 'kron', 'kronbelet@gmail.com', 'd934340eb29cd2353af5826c8126c5ea', 'admin', '2023-05-10 12:26:42'),
 (2, 'estudiante', 'estudiante@gmail.com', '202cb962ac59075b964b07152d234b70', 'student', '2023-05-10 16:38:58'),
-(3, 'maestro', 'maestro@gmail.com', '202cb962ac59075b964b07152d234b70', 'teacher', '2023-05-10 16:40:48');
+(3, 'maestro', 'maestro@gmail.com', '202cb962ac59075b964b07152d234b70', 'teacher', '2023-05-10 16:40:48'),
+(4, 'juan', 'camilohenaochp@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'admin', '2023-05-18 01:09:14'),
+(5, 'ff', 'ff@ff.com', '4c56ff4ce4aaf9573aa5dff913df997a', 'student', '2023-05-18 01:15:24');
 
 --
 -- Índices para tablas volcadas
@@ -116,7 +120,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `enrollment`
@@ -128,7 +132,7 @@ ALTER TABLE `enrollment`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

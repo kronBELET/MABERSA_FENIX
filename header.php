@@ -7,6 +7,7 @@
             // Comprobar si el usuario está conectado como estudiante
             if (isset($_SESSION['role']) && $_SESSION['role'] == 'student') {
                 echo '<li><a href="index.php">Hogar</a></li>';
+                echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="student_dashboard.php">Panel</a></li>';
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
                 echo '<li><a href="politics.php">nosotros</a></li>';
