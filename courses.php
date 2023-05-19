@@ -21,14 +21,14 @@ $paginaActual = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($paginaActual - 1) * $cursosPorPagina;
 
 // Preparar la consulta SQL con el límite y el desplazamiento
-$sql = "SELECT * FROM courses ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
+$sql = "SELECT * FROM courses where approved = 1 ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
 
 /*  --BUSQUEDA-- */ 
 // Obtener el término de búsqueda ingresado por el usuario
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
 // Preparar la consulta SQL con el término de búsqueda
-$sql = "SELECT * FROM courses WHERE course_name LIKE '%$searchTerm%' ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
+$sql = "SELECT * FROM courses WHERE approved = 1 && course_name LIKE '%$searchTerm%' ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
 
 
 
