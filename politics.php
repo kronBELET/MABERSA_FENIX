@@ -20,15 +20,15 @@
             
             </section>
             <section>
-            <h2 class="page-title">Nuestras politicas de privacidad</h2>
-                <h1 class="paragraph">Política de privacidad de Mabersa</h1>
+            <h2 class="page-title">Nuestras políticas de privacidad</h2>
+            <h1 class="paragraph">Política de privacidad de Mabersa</h1>
             <p class="paragraph">En Mabersa nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política de privacidad describe cómo recopilamos, utilizamos y protegemos su información personal cuando utiliza nuestros servicios en línea.</p>
             <br>
-                <h1 class="paragraph">Cómo utilizamos su información</h1>
+            <h1 class="paragraph">Cómo utilizamos su información</h1>
             <br>
-            <p class="paragraph">Utilizamos su información personal para proporcionarle nuestros servicios en línea, incluyendo para procesar pagos y enviarle notificaciones por correo electrónico. También utilizamos su información para mejorar nuestros servicios y personalizar su experiencia en nuestro sitio web.</p>
+            <p class="paragraph">Utilizamos su información personal para proporcionarle nuestros servicios en línea, incluyendo el procesamiento de pagos y el envío de notificaciones por correo electrónico. También utilizamos su información para mejorar nuestros servicios y personalizar su experiencia en nuestro sitio web.</p>
             <br>
-                <h1 class="paragraph">Protección de su información</h1>
+            <h1 class="paragraph">Protección de su información</h1>
             <br>
             <p class="paragraph">Tomamos medidas de seguridad razonables para proteger su información personal contra el acceso no autorizado o el uso indebido. Utilizamos encriptación y otros métodos de seguridad para proteger su información personal mientras se transmite y se almacena en nuestros servidores.</p>
             </section>
