@@ -4,7 +4,7 @@ require_once('db_conn.php');
 
 $show = '';
 // Preparar la consulta SQL
-$sql = "SELECT * FROM courses where approved = 1 ORDER BY `c_id` LIMIT 6";
+$sql = "SELECT * FROM courses WHERE approved = 1 ORDER BY `c_id` LIMIT 6";
 
 // Ejecutar la consulta y almacenar el conjunto de resultados
 $result = mysqli_query($conn, $sql);
@@ -16,10 +16,12 @@ if (mysqli_num_rows($result) > 0) {
     // Recorrer el conjunto de resultados y mostrar cada fila como una fila de tabla
     while($row = mysqli_fetch_assoc($result)) {
         $c_id = $row['c_id'];
+        $imageUrl = $row['image'];
 
         $show .= '<div class="card">
         <div class="card-content">
             <h2>'.$row['course_name'].'</h2>
+            <img class="card-image" src="'.$imageUrl.'" alt="'.$row['course_name'].'">
             <p>'.substr($row['course_description'], 0, 100) . "...".'</p>
             <a href="course.php?c_id='.$c_id.'" class="button">Aprende más</a>
         </div>
@@ -39,6 +41,12 @@ if (mysqli_num_rows($result) > 0) {
     <title>Mabersa</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <style>
+        .card-image {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -74,3 +82,4 @@ if (mysqli_num_rows($result) > 0) {
 </body>
 
 </html>
+

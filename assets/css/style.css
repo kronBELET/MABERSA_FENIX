@@ -72,7 +72,7 @@ nav a.active {
 }
 
 .card {
-    background-image: url(../images/capi.jpg);
+    background-color: white;
     width: 30%;
     margin-bottom: 20px;
     border: 1px solid #ddd;

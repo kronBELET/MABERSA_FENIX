@@ -8,8 +8,8 @@
     </head>
 
     <body>
-<?php include('header.php'); ?>
-</main  class="main-banner">
+        <?php include('header.php'); ?>
+        </main  class="main-banner">
             <section>
             <h2 class="page-title">¿Quienes somos?</h2> 
             <p class="paragraph">Los desarrolladores están trabajando en equipo para crear una página web de cursos en línea. Ambos tienen experiencia en programación web y están dedicados a ofrecer una experiencia de usuario de alta calidad. Están utilizando tecnologías modernas y herramientas para diseñar y desarrollar la página, y están comprometidos a seguir las mejores prácticas de desarrollo web para garantizar la seguridad y la escalabilidad de la plataforma. Uno de los desarrolladores se centra en el front-end, diseñando la interfaz de usuario y la experiencia de usuario, mientras que el otro se centra en el back-end, programando la funcionalidad de la plataforma y la integración de bases de datos. Juntos, están trabajando para crear una plataforma robusta y fácil de usar que permita a los usuarios descubrir, inscribirse y tomar cursos en línea de manera eficiente.</p>
