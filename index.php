@@ -34,20 +34,14 @@ if (mysqli_num_rows($result) > 0) {
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Mabersa</title>
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    </head>
-
-    <body>
-    <!DOCTYPE html>
-<html>
 <head>
-	<title>Cursos Online</title>
+    <meta charset="UTF-8">
+    <title>Mabersa</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
+
 <body>
-    
     <?php include('header.php'); ?>
     <div class="main-banner" id="top">
         <main>
@@ -55,8 +49,8 @@ if (mysqli_num_rows($result) > 0) {
                 <img src="../images/capi.jpg" alt="../images/capi.jpg">
             </div>
             <section>
-                <h2 class="page-title">Bienbenido a Mabersa</h2>
-                <p class="paragraph">Descubre nuestra amplia selección de cursos en línea y permítenos ayudarte en tu camino al conocimiento, contamos con cursos de todo tipo, algunos son:</p>
+                <h2 class="page-title">Bienvenido a Mabersa</h2>
+                <p class="paragraph">Descubre nuestra amplia selección de cursos en línea y permítenos ayudarte en tu camino al conocimiento. Contamos con cursos de todo tipo, algunos son:</p>
                 <ul class="paragraph" style="list-style: none;">
                     <li>Curso de programación en PHP</li>
                     <li>Curso de diseño gráfico</li>
@@ -71,8 +65,12 @@ if (mysqli_num_rows($result) > 0) {
             <div class="card-container">
                 <?php echo $show; ?>    
             </div>
+        </main>
         
         <?php include('footer.php'); ?>
-    </body>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 
 </html>
