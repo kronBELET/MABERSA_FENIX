@@ -11,25 +11,24 @@ $result = mysqli_query($conn, $sql);
 
 // Comprobar si se han encontrado resultados
 if (mysqli_num_rows($result) > 0) {
-   // Iniciar tabla HTML y encabezados de tabla
-   
+    // Iniciar tabla HTML y encabezados de tabla
+
     // Recorrer el conjunto de resultados y mostrar cada fila como una fila de tabla
-    while($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         $c_id = $row['c_id'];
         $imageUrl = $row['image'];
 
         $show .= '<div class="card">
         <div class="card-content">
-            <h2>'.$row['course_name'].'</h2>
-            <img class="card-image" src="'.$imageUrl.'" alt="'.$row['course_name'].'">
-            <p>'.substr($row['course_description'], 0, 100) . "...".'</p>
-            <a href="course.php?c_id='.$c_id.'" class="button">Aprende más</a>
+            <h2>' . $row['course_name'] . '</h2>
+            <img class="card-image" src="' . $imageUrl . '" alt="' . $row['course_name'] . '">
+            <p>' . substr($row['course_description'], 0, 100) . "..." . '</p>
+            <a href="course.php?c_id=' . $c_id . '" class="button">Aprende más</a>
         </div>
     </div>';
     }
-    
 } else {
-   // No se han encontrado resultados
+    // No se han encontrado resultados
     $show = "<div class='error'>No se encontraron cursos.</div>";
 }
 ?>
@@ -44,7 +43,8 @@ if (mysqli_num_rows($result) > 0) {
     <style>
         .card-image {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -53,9 +53,7 @@ if (mysqli_num_rows($result) > 0) {
     <?php include('header.php'); ?>
     <div class="main-banner" id="top">
         <main>
-            <div>
-                <img src="../images/capi.jpg" alt="../images/capi.jpg">
-            </div>
+            
             <section>
                 <h2 class="page-title">Bienvenido a Mabersa</h2>
                 <p class="paragraph">Descubre nuestra amplia selección de cursos en línea y permítenos ayudarte en tu camino al conocimiento. Contamos con cursos de todo tipo, algunos son:</p>
@@ -67,14 +65,14 @@ if (mysqli_num_rows($result) > 0) {
                 </ul>
             </section>
         </main>
-        
+
         <main>
             <h1 class="page-title">Cursos Recientes</h1>
             <div class="card-container">
-                <?php echo $show; ?>    
+                <?php echo $show; ?>
             </div>
         </main>
-        
+
         <?php include('footer.php'); ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -82,4 +80,5 @@ if (mysqli_num_rows($result) > 0) {
 </body>
 
 </html>
+
 

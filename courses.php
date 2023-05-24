@@ -40,13 +40,15 @@ if (mysqli_num_rows($result) > 0) {
     // Recorrer el conjunto de resultados y mostrar cada fila como una fila de tabla
     while ($row = mysqli_fetch_assoc($result)) {
         $c_id = $row['c_id'];
+        $imageUrl = $row['image'];
 
         $show .= '<div class="card">
-            <div class="card-content">
-                <h2>' . $row['course_name'] . '</h2>
-                <p>' . substr($row['course_description'], 0, 100) . "..." . '</p>
-                <a href="course.php?c_id=' . $c_id . '" class="button">Aprende más</a>
-            </div>
+        <div class="card-content">
+            <h2>' . $row['course_name'] . '</h2>
+            <img class="card-image" src="' . $imageUrl . '" alt="' . $row['course_name'] . '">
+            <p>' . substr($row['course_description'], 0, 100) . "..." . '</p>
+            <a href="course.php?c_id=' . $c_id . '" class="button">Aprende más</a>
+        </div>
         </div>';
     }
 } else {
