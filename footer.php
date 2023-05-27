@@ -1,4 +1,4 @@
-<footer class="bg-danger text-light mt-5 fixed-bottom">
+<footer class="bg-danger text-light mt-5 fixed-bottom" style="height: 50px;">
     <div class="container py-3">
         <div class="row">
             <div class="col-12">
@@ -7,3 +7,4 @@
         </div>
     </div>
 </footer>
+
