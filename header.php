@@ -19,6 +19,7 @@
                 echo '<li><a href="courses.php">Cursos</a></li>';
                 echo '<li><a href="add_course.php">Añadir curso</a></li>';
                 echo '<li><a href="politics.php">nosotros</a></li>';
+              
                 echo '<li><a href="logout.php">Cerrar sesión</a></li>';
             }
             //si el usuario es el administrador

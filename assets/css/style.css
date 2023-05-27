@@ -64,7 +64,6 @@ nav a.active {
 }
 
 .card-container {
-   
     padding: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +89,7 @@ nav a.active {
     line-height: 1.5;
     margin-bottom: 20px;
 }
+
 .card-image {
     width: 100%;
     height: 200px;
@@ -106,7 +106,6 @@ form {
 .forms {
     display: flex;
     justify-content: center;
-    /* text-align: center; */
 }
 
 .forms form {
@@ -160,7 +159,6 @@ form {
     transition: background-color 0.2s ease;
 }
 
-
 .eliminar {
     padding: 10px 20px;
     background-color: red;
@@ -169,7 +167,8 @@ form {
     border-radius: 5px;
     transition: background-color 0.2s ease;
 }
-.editar{
+
+.editar {
     padding: 10px 20px;
     background-color: rgb(255, 208, 0);
     color: #fff;
@@ -178,13 +177,7 @@ form {
     transition: background-color 0.2s ease;
 }
 
-footer {
-    background-color: #ffc0cb;
-    /* pink */
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
+
 
 /* Error message style */
 .error {
@@ -228,7 +221,6 @@ tr:hover {
     background-color: #ddd;
 }
 
-
 .course-container {
     display: flex;
     flex-wrap: wrap;
@@ -259,7 +251,8 @@ tr:hover {
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
-.cancel-btn{
+
+.cancel-btn {
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: #ff0000;
@@ -283,16 +276,16 @@ tr:hover {
     background-color: #0062cc;
 }
 
-.students{
+.students {
     padding: 40px 0;
     width: 100%;
 }
 
-.students h2{
+.students h2 {
     margin-bottom: 20px;
 }
 
-.students table{
+.students table {
     width: 50%;
     margin: 0 auto;
 }
@@ -308,5 +301,4 @@ tr:hover {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 170px 0px 120px 0px;
-}   
-
+}

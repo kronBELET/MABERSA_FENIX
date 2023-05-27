@@ -64,6 +64,8 @@ if (mysqli_num_rows($result) > 0) {
             </div>
         </main>
         <?php include('footer.php'); ?>
+        
+    
     </body>
 
 </html>
