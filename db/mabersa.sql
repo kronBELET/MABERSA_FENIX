@@ -72,6 +72,28 @@ CREATE TABLE `enrollment` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `lesiones`
+--
+
+CREATE TABLE `lesiones` (
+  `l_id` int(11) NOT NULL,
+  `t_id` int(11) NOT NULL,
+  `lesion_name` varchar(255) NOT NULL,
+  `lesion_description` text DEFAULT NULL,
+  `video` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `lesiones`
+--
+
+INSERT INTO `lesiones` (`l_id`, `t_id`, `lesion_name`, `lesion_description`, `video`) VALUES
+(1, 3, 'comiensi', 'werewrewrw4eewrewrewrwerewrewrwe', 'uploads/647287f63621a.mp4'),
+(2, 3, 'errwerewrwer', 'werwerwrwerwre', 'uploads/6472903abbe43.mp4');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -114,6 +136,13 @@ ALTER TABLE `enrollment`
   ADD KEY `c_id` (`c_id`);
 
 --
+-- Indices de la tabla `lesiones`
+--
+ALTER TABLE `lesiones`
+  ADD PRIMARY KEY (`l_id`),
+  ADD KEY `lesiones_ibfk_1` (`t_id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -137,6 +166,12 @@ ALTER TABLE `enrollment`
   MODIFY `e_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `lesiones`
+--
+ALTER TABLE `lesiones`
+  MODIFY `l_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
@@ -152,6 +187,12 @@ ALTER TABLE `users`
 ALTER TABLE `enrollment`
   ADD CONSTRAINT `enrollment_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`),
   ADD CONSTRAINT `enrollment_ibfk_2` FOREIGN KEY (`c_id`) REFERENCES `courses` (`c_id`);
+
+--
+-- Filtros para la tabla `lesiones`
+--
+ALTER TABLE `lesiones`
+  ADD CONSTRAINT `lesiones_ibfk_1` FOREIGN KEY (`t_id`) REFERENCES `users` (`u_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
