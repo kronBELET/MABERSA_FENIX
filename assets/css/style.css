@@ -338,3 +338,16 @@ tr:hover {
     height: 450px;
     object-fit: cover;
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e83e8c;
+    height: 50px;
+    /* Otros estilos opcionales */
+    color: white; /* Color del texto en el footer */
+    text-align: center; /* Alineación del texto en el centro */
+    padding: 10px; /* Espacio interno alrededor del contenido del footer */
+  }
