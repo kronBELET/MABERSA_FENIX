@@ -3,7 +3,9 @@
 require_once('db_conn.php');
 
 $show = '';
-$cursosPorPagina = 10;
+$totalPaginas = 0;
+
+$cursosPorPagina = 12;
 
 // Obtener el número total de cursos
 $sqlTotalCursos = "SELECT COUNT(*) AS total FROM courses";
@@ -29,8 +31,6 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
 // Preparar la consulta SQL con el término de búsqueda
 $sql = "SELECT * FROM courses WHERE approved = 1 && course_name LIKE '%$searchTerm%' ORDER BY `c_id` LIMIT $offset, $cursosPorPagina";
-
-
 
 // Ejecutar la consulta y almacenar el conjunto de resultados
 $result = mysqli_query($conn, $sql);
@@ -76,6 +76,13 @@ if (mysqli_num_rows($result) > 0) {
             border-color: #FF4081;
             color: #fff;
         }
+
+        /* Estilos adicionales para el contenedor de paginación y footer */
+        .pagination-footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -107,9 +114,28 @@ if (mysqli_num_rows($result) > 0) {
         ?>
     </div>
 </main>
-<?php include('footer.php'); ?>
+
+<!-- Contenedor para la paginación y el footer -->
+<div class="pagination-footer-container">
+    <!-- Mostrar la paginación nuevamente -->
+    <div class="pagination mt-4">
+        <?php
+        // Mostrar enlaces a las diferentes páginas
+        for ($i = 1; $i <= $totalPaginas; $i++) {
+            // Agregar clase 'active' al enlace de la página actual
+            $activeClass = ($i == $paginaActual) ? 'active' : '';
+
+            echo '<a href="courses.php?page=' . $i . '" class="page-link ' . $activeClass . '">' . $i . '</a>';
+        }
+        ?>
+    </div>
+
+    <?php include('footer.php'); ?>
+</div>
     
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+

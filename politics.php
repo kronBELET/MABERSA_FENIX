@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +24,28 @@ session_start();
             margin-bottom: 20px;
         }
 
-
         .paragraph {
             color: #666;
             font-size: 16px;
             line-height: 1.5;
             text-align: left;
+        }
+        
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .team-member-name {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .team-member-image {
+            width: 200px; /* ajusta el tamaño de la imagen según tus necesidades */
+            height: auto;
         }
     </style>
 </head>
@@ -47,6 +59,14 @@ session_start();
         </section>
         <section class="section-container">
             <h2 class="page-title">Nuestro equipo</h2>
+            <div class="team-member">
+                <h3 class="team-member-name">Jose Luis Giraldo Suaza</h3>
+                <img src="ruta_de_la_imagen1.jpg" alt="Imagen de Jose Luis Giraldo Suaza" class="team-member-image">
+            </div>
+            <div class="team-member">
+                <h3 class="team-member-name">Juan Camilo Henao Perez</h3>
+                <img src="ruta_de_la_imagen2.jpg" alt="Imagen de Juan Camilo Henao Perez" class="team-member-image">
+            </div>
         </section>
         <section class="section-container">
             <h2 class="page-title">Nuestras políticas de privacidad</h2>
@@ -57,8 +77,15 @@ session_start();
             <h1 class="paragraph">Protección de su información</h1>
             <p class="paragraph">Tomamos medidas de seguridad razonables para proteger su información personal contra el acceso no autorizado o el uso indebido. Utilizamos encriptación y otros métodos de seguridad para proteger su información personal mientras se transmite y se almacena en nuestros servidores.</p>
         </section>
+        <section class="section-container">
+            <h2 class="page-title">¿Quieres apoyarnos?</h2>
+            <p class="paragraph">En nuestro patreon podrás apoyarnos si lo deseas</p>
+            <a href="https://www.patreon.com/user/membership?u=67202336">Patreon</a>
+        </section>    
     </main>
     <?php include('footer.php'); ?>
 </body>
 </html>
+
+
 
