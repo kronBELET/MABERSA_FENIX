@@ -83,7 +83,13 @@ if (isset($_POST['c_id'])) {
         }
 
         // Redirigir a la página de detalles del curso después de la actualización
-        header("Location: admin_dashboard.php?c_id=$c_id");
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+            header('location: admin_dashboard.php');
+        }
+        elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'teacher') {
+            header('location: teacher_dashboard.php');
+        }
+
         exit();
     } else {
         echo "No se encontró el registro.";

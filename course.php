@@ -75,21 +75,53 @@ if (isset($_REQUEST['c_id'])) {
             }
         }
 
-        $show .= '<div class="video-container">
-            <video src="./'.$row['video'].'" controls></video>
-        </div>
-        <div class="course-info">
-            <h2>'.$row['course_name'].'</h2>
-            <p><b>Maestro/Maestra:</b> '.$row1['name'].'</p>
-            <p>'.nl2br($row['course_description']).'</p>';
-
+        $show .= '<div class="course-container">
+            <div class="video-container">
+                <video src="./'.$row['video'].'" controls></video>
+            </div>
+            <div class="course-info">
+                <h2>'.$row['course_name'].'</h2>
+                <p><b>Maestro/Maestra:</b> '.$row1['name'].'</p>
+                <p>'.nl2br($row['course_description']).'</p>';
+        
         if ($enrolled) {
-            $show .= '<a href="?cancel='.$row['c_id'].'" class="cancel-btn">Cancelar inscripción</a>';
+            $show .= '<div class="course-actions">
+                <form method="POST" action="">
+                    <input type="hidden" name="cancel" value="'.$row['c_id'].'">
+                    <button type="submit" class="cancel-btn">Cancelar inscripción</button>
+                </form>
+            </div>';
         } else {
-            $show .= '<a href="?c_id='.$row['c_id'].'&enroll='.$row['c_id'].'" class="enroll-btn">Enlístate ahora</a>';
+            $show .= '<div class="course-actions">
+                <form method="POST" action="">
+                    <input type="hidden" name="enroll" value="'.$row['c_id'].'">
+                    <button type="submit" class="enroll-btn">Enlístate ahora</button>
+                </form>
+            </div>';
         }
-
-        $show .= '</div>';
+        
+        if ($enrolled) {
+            $sql_lesiones = "SELECT * FROM lesiones WHERE t_id = $t_id";
+            $result_lesiones = mysqli_query($conn, $sql_lesiones);
+            $show .= '<div class="lesiones-container">
+                <h2>Lesiones Disponibles</h2>';
+            if (mysqli_num_rows($result_lesiones) > 0) {
+                $show .= '<ul>';
+                while ($row_lesiones = mysqli_fetch_assoc($result_lesiones)) {
+                    $show .= '<li>
+                        <h3>'.$row_lesiones['lesion_name'].'</h3>
+                        <p>'.$row_lesiones['lesion_description'].'</p>
+                        <video src="'.$row_lesiones['video'].'" controls></video>
+                    </li>';
+                }
+                $show .= '</ul>';
+            } else {
+                $show .= '<p>No hay lesiones disponibles para este curso.</p>';
+            }
+            $show .= '</div>';
+        }
+        
+        $show .= '</div></div>';
     } else {
         // No se han encontrado resultados
         $show = "<div class='error'>No se encontraron cursos.</div>";
@@ -108,9 +140,7 @@ if (isset($_REQUEST['c_id'])) {
     <main>
         <h1 class="page-title">Detalles del curso</h1>
         <?php echo $info; ?>
-        <div class="course-container">
-            <?php echo $show; ?>
-        </div>
+        <?php echo $show; ?>
     </main>
     <?php include('footer.php'); ?>
 </body>

@@ -15,8 +15,7 @@ main {
 }
 
 header {
-    background-color: #df2e72fb;
-    /* red */
+    background-color: #df2e72fb; /* red */
     color: white;
     padding: 20px;
 }
@@ -177,8 +176,6 @@ form {
     transition: background-color 0.2s ease;
 }
 
-
-
 /* Error message style */
 .error {
     background-color: #f2dede;
@@ -239,7 +236,7 @@ tr:hover {
 }
 
 .course-info {
-    width: 40%;
+    width: 50%;
 }
 
 .course-info h2 {
@@ -250,6 +247,24 @@ tr:hover {
 .course-info p {
     font-size: 1.2rem;
     margin-bottom: 1rem;
+}
+
+.lesiones-container {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.lesiones-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.lesiones-container li {
+    margin-bottom: 20px;
+}
+
+.lesiones-container h2 {
+    margin-bottom: 10px;
 }
 
 .cancel-btn {
@@ -301,4 +316,25 @@ tr:hover {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 170px 0px 120px 0px;
+}
+/* Resto del código CSS existente */
+
+.lesiones-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.lesiones-container li {
+    margin-bottom: 20px;
+}
+
+.lesiones-container h2 {
+    margin-bottom: 10px;
+}
+
+/* Clase para los elementos de video dentro de la lista de lesiones */
+.lesiones-container li video {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
 }
