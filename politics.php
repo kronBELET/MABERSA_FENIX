@@ -31,11 +31,18 @@
             text-align: left;
         }
         
+        .team-members {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
         .team-member {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
+            flex-basis: calc(50% - 10px);
         }
 
         .team-member-name {
@@ -46,6 +53,13 @@
         .team-member-image {
             width: 200px; /* ajusta el tamaño de la imagen según tus necesidades */
             height: auto;
+        }
+        
+        .circle-image {
+            border-radius: 50%;
+            width: 200px; /* Tamaño deseado para el ancho */
+            height: 200px; /* Tamaño deseado para la altura */
+            object-fit: cover; /* Ajustar imagen para llenar el contenedor sin distorsionar */
         }
     </style>
 </head>
@@ -59,13 +73,15 @@
         </section>
         <section class="section-container">
             <h2 class="page-title">Nuestro equipo</h2>
-            <div class="team-member">
-                <h3 class="team-member-name">Jose Luis Giraldo Suaza</h3>
-                <img src="ruta_de_la_imagen1.jpg" alt="Imagen de Jose Luis Giraldo Suaza" class="team-member-image">
-            </div>
-            <div class="team-member">
-                <h3 class="team-member-name">Juan Camilo Henao Perez</h3>
-                <img src="ruta_de_la_imagen2.jpg" alt="Imagen de Juan Camilo Henao Perez" class="team-member-image">
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="assets/images/capi.jpg" alt="Imagen de Jose Luis Giraldo Suaza" class="team-member-image circle-image">
+                    <h3 class="team-member-name">Jose Luis Giraldo Suaza</h3>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/luis.jpg" alt="Imagen de Juan Camilo Henao Perez" class="team-member-image circle-image">
+                    <h3 class="team-member-name">Juan Camilo Henao Perez</h3>
+                </div>
             </div>
         </section>
         <section class="section-container">
@@ -86,6 +102,7 @@
     <?php include('footer.php'); ?>
 </body>
 </html>
+
 
 
 
