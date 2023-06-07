@@ -20,8 +20,8 @@ if (isset($_GET['u_id'])) {
         // Actualizar los datos en la base de datos
         $updateSql = "UPDATE users SET name='$newName', email='$newEmail' WHERE u_id=$u_id";
         if (mysqli_query($conn, $updateSql)) {
-            // Redirigir a la página principal después de la actualización exitosa
-            header('location:index.php');
+            // Redirigir a la página user.php después de la actualización exitosa
+            header('location:user.php');
             die();
         } else {
             echo "Error al actualizar los datos: " . mysqli_error($conn);
@@ -77,3 +77,4 @@ if (isset($_GET['u_id'])) {
     echo "ID de usuario no proporcionado.";
 }
 ?>
+

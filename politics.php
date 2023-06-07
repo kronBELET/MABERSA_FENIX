@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,6 +62,26 @@
             height: 200px; /* Tamaño deseado para la altura */
             object-fit: cover; /* Ajustar imagen para llenar el contenedor sin distorsionar */
         }
+        
+        .support-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .support-text {
+            margin-bottom: 10px;
+        }
+
+        .support-image {
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .center {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -75,14 +96,18 @@
             <h2 class="page-title">Nuestro equipo</h2>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="assets/images/capi.jpg" alt="Imagen de Jose Luis Giraldo Suaza" class="team-member-image circle-image">
+                    <img src="assets/images/luis1.jpg" alt="Imagen de Jose Luis Giraldo Suaza" class="team-member-image circle-image">
                     <h3 class="team-member-name">Jose Luis Giraldo Suaza</h3>
                 </div>
                 <div class="team-member">
-                    <img src="assets/images/luis.jpg" alt="Imagen de Juan Camilo Henao Perez" class="team-member-image circle-image">
+                    <img src="assets/images/camilo2.jpg" alt="Imagen de Juan Camilo Henao Perez" class="team-member-image circle-image">
                     <h3 class="team-member-name">Juan Camilo Henao Perez</h3>
                 </div>
             </div>
+        </section>
+        <section class="section-container contact-container">
+            <h2 class="page-title center">¿Quieres contactarnos?</h2>
+            <p class="paragraph contact-email center">Correo: Mabersa@gmail.com</p>
         </section>
         <section class="section-container">
             <h2 class="page-title">Nuestras políticas de privacidad</h2>
@@ -95,13 +120,22 @@
         </section>
         <section class="section-container">
             <h2 class="page-title">¿Quieres apoyarnos?</h2>
-            <p class="paragraph">En nuestro patreon podrás apoyarnos si lo deseas</p>
-            <a href="https://www.patreon.com/user/membership?u=67202336">Patreon</a>
+            <div class="support-container">
+                <p class="paragraph support-text">En nuestro Patreon podrás apoyarnos si lo deseas</p>
+                <a href="https://patreon.com/Mabersa">
+                    <img src="assets/images/patreon.png" alt="patreon" class="support-image">
+                </a>
+            </div>
         </section>    
     </main>
     <?php include('footer.php'); ?>
 </body>
 </html>
+
+
+
+
+
 
 
 
