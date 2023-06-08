@@ -1,7 +1,10 @@
 <?php
 // Incluir el archivo de conexión a la base de datos
 require_once('db_conn.php');
-
+if (!isTeacherLoggedIn() && !isAdminLoggedIn()) {
+    header('location:login.php?login_please');
+    die();
+}
 $show = $info = '';
 if (isset($_REQUEST['c_id'])) {
     $c_id = mysqli_real_escape_string($conn, $_REQUEST['c_id']);
@@ -58,16 +61,18 @@ if (isset($_REQUEST['c_id'])) {
         </div>
 
         <?php if (mysqli_num_rows($result_lesiones) > 0): ?>
-            <h2>Lesiones Disponibles</h2>
-            <ul>
-                <?php while ($row_lesiones = mysqli_fetch_assoc($result_lesiones)): ?>
-                    <li>
-                        <h3><?php echo $row_lesiones['lesion_name']; ?></h3>
-                        <p><?php echo $row_lesiones['lesion_description']; ?></p>
-                        <video src="<?php echo $row_lesiones['video']; ?>" controls></video>
-                    </li>
-                <?php endwhile; ?>
-            </ul>
+            <div class="lesiones-container">
+                <h2>Lesiones Disponibles</h2>
+                <ul>
+                    <?php while ($row_lesiones = mysqli_fetch_assoc($result_lesiones)): ?>
+                        <li>
+                            <h3><?php echo $row_lesiones['lesion_name']; ?></h3>
+                            <p><?php echo $row_lesiones['lesion_description']; ?></p>
+                            <video src="<?php echo $row_lesiones['video']; ?>" controls></video>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
         <?php endif; ?>
     </main>
     <?php include('footer.php'); ?>

@@ -3,7 +3,10 @@
 require_once('db_conn.php');
 
 // Verificar si el maestro está autenticado
-if (!isTeacherLoggedIn()) {
+if (!isTeacherLoggedIn() && !isAdminLoggedIn()) {
+    header('location:login.php?login_please');
+    die();
+} {
     header('location: login.php');
     exit();
 }

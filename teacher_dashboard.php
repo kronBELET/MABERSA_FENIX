@@ -1,7 +1,7 @@
 <?php
 // Incluir el archivo de conexión a la base de datos
 require_once('db_conn.php');
-if (!isTeacherLoggedIn()) {
+if (!isTeacherLoggedIn() && !isAdminLoggedIn()) {
     header('location:login.php?login_please');
     die();
 }
