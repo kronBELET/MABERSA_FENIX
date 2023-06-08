@@ -109,6 +109,11 @@
             <h2 class="page-title center">¿Quieres contactarnos?</h2>
             <p class="paragraph contact-email center">Correo: Mabersa@gmail.com</p>
         </section>
+        <section class="section-container contact-container">
+            <h2 class="page-title center">¡Importante!</h2>
+            <p class="paragraph contact-email center">Mabersa es una pagina web para todas las edades por lo que si suves contenido +18 o inaprpiado ten en cuanta que tu publiacacion sera eliminada ademas esta puede no ser aprobada</p>
+        </section>
+
         <section class="section-container">
             <h2 class="page-title">Nuestras políticas de privacidad</h2>
             <h1 class="paragraph">Política de privacidad de Mabersa</h1>
